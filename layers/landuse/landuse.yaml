@@ -40,8 +40,10 @@ layer:
       - neighbourhood
       - dam
   datasource:
+    key_field: osm_id
+    key_field_as_attribute: no
     geometry_field: geometry
-    query: (SELECT geometry, class FROM layer_landuse(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT osm_id, geometry, class FROM layer_landuse(!bbox!, z(!scale_denominator!))) AS t
 schema:
   - ./landuse.sql
 datasources:
